@@ -44,7 +44,7 @@ class elisa_stream_listener(StreamListener):
         self.gmaps = GoogleMaps('')
 
     def load_countries_continent_map(self):
-        countries_continent_json_file = open('Countries-Continents.json')
+        countries_continent_json_file = open('../resources/Countries-Continents.json')
         self.countries_continent_json = json.load(countries_continent_json_file)
         countries_continent_json_file.close()
 
