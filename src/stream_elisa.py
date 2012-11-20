@@ -23,7 +23,6 @@ class elisa_stream_listener(StreamListener):
     tweets_cnt = 0
     
     def trunc(self,f, n):
-        '''Truncates/pads a float f to n decimal places without rounding'''
         slen = len('%.*f' % (n, f))
         return str(f)[:slen]
     
@@ -42,7 +41,7 @@ class elisa_stream_listener(StreamListener):
         return
         
     def auth_gmaps(self):
-        self.gmaps = GoogleMaps('48e7668b14812c0bed47256d2234e7620e5d030e')
+        self.gmaps = GoogleMaps('')
 
     def load_countries_continent_map(self):
         countries_continent_json_file = open('Countries-Continents.json')
