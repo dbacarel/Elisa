@@ -5,7 +5,7 @@ import auth_elisa
 import json
 
 
-TOPIC = 'gaza'
+TOPIC = ''
 
 class elisa_stream_listener(StreamListener):
 
