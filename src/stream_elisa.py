@@ -1,6 +1,5 @@
 from tweepy import Stream
 from tweepy.streaming import StreamListener
-from googlemaps import GoogleMaps
 import auth_elisa
 import json
 import threading
@@ -8,16 +7,11 @@ import time
 
 TOPIC = ''
 
-<<<<<<< HEAD
     
-=======
-TOPIC = ''
-
->>>>>>> 7dd7ebdcfd598a6e73aabfe9d709cf4c24073459
 class elisa_stream_listener(StreamListener):
 
     DEBUG = False
-    gmaps = None
+
 
     countries_continent = {}
     
@@ -81,6 +75,7 @@ class elisa_stream_listener(StreamListener):
         
     
     def trunc(self,f, n):
+        '''Truncates/pads a float f to n decimal places without rounding'''
         slen = len('%.*f' % (n, f))
         return str(f)[:slen]
     
@@ -93,34 +88,7 @@ class elisa_stream_listener(StreamListener):
       
         return
         
-<<<<<<< HEAD
         
-=======
-    def auth_gmaps(self):
-        self.gmaps = GoogleMaps('')
-
-    def load_countries_continent_map(self):
-        countries_continent_json_file = open('../resources/Countries-Continents.json')
-        self.countries_continent_json = json.load(countries_continent_json_file)
-        countries_continent_json_file.close()
-
-    def get_complete_address(self,loc):
-        try:
-           
-            #Fetching continent
-            lat,lng = self.gmaps.address_to_latlng(loc)
-            location = self.gmaps.latlng_to_address(lat,lng)
-            start_index_country = location.rfind(',')
-            country = location[start_index_country+1:]
-            continent = self.countries_continent_json[country.strip()]
-            self.update_stats(continent)
-            return  continent
-            
-        except Exception as E:
-            if self.DEBUG:
-                print E
-            return 'unknown'
->>>>>>> 7dd7ebdcfd598a6e73aabfe9d709cf4c24073459
 
     def on_error(self,status):
         print status
