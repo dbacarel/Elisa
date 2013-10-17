@@ -6,7 +6,7 @@ import threading
 import time
 import re
 
-TOPIC = 'berlusconi'
+TOPIC = ''
 
     
 class elisa_stream_listener(StreamListener):
